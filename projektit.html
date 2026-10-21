@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projektit | Sankofa ry</title>
+  <meta
+    name="description"
+    content="Sankofa ry:n tulevat projektit ja menneet tapahtumat."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="projektit">
+  <a class="skip-link" href="#main-content" data-en="Skip to content">
+    Siirry sisältöön
+  </a>
+
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main-content" tabindex="-1">
+    <div class="page projects-page">
+      <div class="content-container">
+
+        <section aria-labelledby="projects-heading">
+          <h1 id="projects-heading" data-en="Upcoming projects">
+            Tulevat projektit
+          </h1>
+
+          <p
+            class="projects-introduction"
+            data-en="Here we share information about upcoming events."
+          >
+            Tällä sivulla kerromme teille tulevista tapahtumista.
+          </p>
+
+          <!--
+            Muokkaa tapahtuman tiedot tähän.
+            Lisää uusi tapahtuma kopioimalla koko article-elementti.
+          -->
+          <article class="event-card">
+            <h2 data-en="Event name">Tapahtuman nimi</h2>
+
+            <p data-en="Date, location and a short description.">
+              Päivämäärä, paikka ja lyhyt kuvaus.
+            </p>
+          </article>
+        </section>
+
+        <section
+          class="past-events"
+          aria-labelledby="past-events-heading"
+        >
+          <h2 id="past-events-heading" data-en="Past events">
+            Menneet tapahtumat
+          </h2>
+
+          <article class="event-card">
+            <h3 data-en="Past event name">
+              Menneen tapahtuman nimi
+            </h3>
+
+            <p data-en="Date, location and a short description.">
+              Päivämäärä, paikka ja lyhyt kuvaus.
+            </p>
+          </article>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+</body>
+</html>

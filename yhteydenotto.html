@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Yhteydenotto | Sankofa ry</title>
+  <meta
+    name="description"
+    content="Ota yhteyttä Sankofa ry:hyn ja kysy esityksistä tai yhteistyöstä."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="yhteydenotto">
+  <a class="skip-link" href="#main-content" data-en="Skip to content">
+    Siirry sisältöön
+  </a>
+
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="page contact-page" aria-labelledby="contact-heading">
+      <div class="content-container">
+        <h1
+          id="contact-heading"
+          class="page-heading"
+          data-en="Get in touch"
+        >
+          Ota yhteyttä
+        </h1>
+
+        <p
+          class="page-introduction contact-introduction"
+          data-en="Would you like to ask about our performances, suggest a collaboration or hear more about our work? Get in touch — we would love to hear from you."
+        >
+          Haluatko kysyä esityksistämme, ehdottaa yhteistyötä
+          tai kuulla lisää toiminnastamme? Ota yhteyttä –
+          kuulemme mielellämme sinusta.
+        </p>
+
+        <!-- Yhteystiedot päivitetään js/script.js-tiedoston alussa. -->
+        <div class="contact-card">
+          <h2 data-contact="name">Sankofa ry</h2>
+
+          <dl class="contact-details">
+            <div data-contact-row="email">
+              <dt data-en="Email">Sähköposti</dt>
+              <dd>
+                <a
+                  href="mailto:Info.sankofary@gmail.com"
+                  data-contact="email"
+                >
+                  Info.sankofary@gmail.com
+                </a>
+              </dd>
+            </div>
+
+            <div data-contact-row="phone" hidden>
+              <dt data-en="Phone">Puhelin</dt>
+              <dd>
+                <a data-contact="phone"></a>
+              </dd>
+            </div>
+
+            <div data-contact-row="person" hidden>
+              <dt data-en="Contact person">Yhteyshenkilö</dt>
+              <dd data-contact="person"></dd>
+            </div>
+
+            <div data-contact-row="address" hidden>
+              <dt data-en="Address">Osoite</dt>
+              <dd data-contact="address"></dd>
+            </div>
+
+            <div data-contact-row="instagram" hidden>
+              <dt>Instagram</dt>
+              <dd>
+                <a
+                  data-contact="instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-en="Visit Instagram ↗"
+                >
+                  Siirry Instagramiin ↗
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <a
+            class="button button-dark"
+            href="mailto:Info.sankofary@gmail.com"
+            data-contact="email-button"
+          >
+            <span data-en="Send an email">Lähetä sähköpostia</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+</body>
+</html>
