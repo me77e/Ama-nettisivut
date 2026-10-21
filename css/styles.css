@@ -990,3 +990,6 @@ main {
 .sankofa-meaning > p + h2 {
   margin-top: 28px;
 }
+main p.home-intro-text {
+  text-align: left;
+}
