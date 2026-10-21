@@ -1,0 +1,884 @@
+/* VÄRIT JA PERUSASETUKSET */
+
+:root {
+  --background: #f0eedf;
+  --heading: #746343;
+  --text: #5e5344;
+
+  /* Laatikon taustan peittävyys 80 %, tekstit täysin peittäviä. */
+  --box: rgba(211, 214, 190, 0.8);
+
+  --button-background: #5e5344;
+  --button-text: #f0eedf;
+  --border: rgba(94, 83, 68, 0.35);
+
+  --content-width: 900px;
+  --radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family: "Geologica", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+select,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  color: inherit;
+}
+
+button,
+select,
+.button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 5px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+figure,
+p,
+h1,
+h2,
+h3,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(36px, 3.8vw, 60px);
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+p + p {
+  margin-top: 18px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--heading);
+  outline-offset: 6px;
+}
+
+main:focus {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+
+  padding: 10px 16px;
+  border-radius: var(--radius);
+
+  background: var(--button-background);
+  color: var(--button-text);
+
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+/* YLÄVALIKKO */
+
+.site-header {
+  width: 100%;
+  background: var(--box);
+}
+
+.header-inner {
+  width: min(1720px, 92%);
+  min-height: 118px;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  gap: clamp(30px, 5vw, 100px);
+}
+
+.main-navigation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 24px;
+}
+
+.main-navigation a {
+  position: relative;
+  padding-block: 10px;
+
+  font-size: clamp(16px, 1.35vw, 23px);
+  font-weight: 300;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.main-navigation a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+
+  height: 1px;
+  background: currentColor;
+
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+
+.main-navigation a:hover::after,
+.main-navigation a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+}
+
+.menu-symbol {
+  font-size: 24px;
+  line-height: 1;
+}
+
+
+/* KIELIVALINTA */
+
+.language-picker {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.language-picker select {
+  appearance: none;
+  width: 120px;
+  min-height: 44px;
+  padding: 8px 30px 8px 10px;
+
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.language-picker option {
+  color: var(--text);
+  background: var(--background);
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 7px;
+
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+
+/* SIVUJEN YHTEISET ASETUKSET */
+
+main {
+  flex: 1;
+}
+
+.page {
+  padding: clamp(90px, 11vw, 205px) 28px 130px;
+}
+
+.content-container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.page-heading {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.page-introduction {
+  max-width: 620px;
+  margin: -30px auto 56px;
+
+  font-size: 21px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+
+/* ETUSIVU */
+
+.home-page {
+  min-height: calc(100svh - 118px);
+  padding-top: clamp(100px, 15vw, 285px);
+  padding-bottom: 130px;
+}
+
+.home-content {
+  max-width: 850px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.home-content h1 {
+  font-size: clamp(44px, 4.3vw, 68px);
+  font-weight: 400;
+}
+
+.home-introduction {
+  max-width: 810px;
+  margin: 64px auto 68px;
+
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+
+/* PAINIKKEET */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 58px;
+  padding: 17px 38px;
+
+  border: 0;
+  border-radius: var(--radius);
+
+  background: var(--box);
+  color: var(--text);
+
+  font-size: 21px;
+  font-weight: 300;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.button:hover {
+  background: #cbd0b2;
+  transform: translateY(-2px);
+}
+
+.button-dark {
+  background: var(--button-background);
+  color: var(--button-text);
+}
+
+.button-dark:hover {
+  background: #4e4538;
+}
+
+
+/* MEISTÄ */
+
+.about-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.05fr);
+  align-items: start;
+  gap: 48px;
+
+  padding: 48px;
+  border-radius: var(--radius);
+  background: var(--box);
+}
+
+.about-text {
+  min-width: 0;
+}
+
+.about-text h2 {
+  margin-bottom: 25px;
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.about-text p {
+  font-size: 21px;
+  line-height: 1.8;
+}
+
+
+/* KUVAT */
+
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 4px;
+  background: rgba(240, 238, 223, 0.55);
+}
+
+.photo-frame img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait-photo {
+  aspect-ratio: 4 / 5;
+}
+
+.portrait-photo img {
+  object-position: center;
+}
+
+.vertical-photo {
+  aspect-ratio: 2 / 3;
+}
+
+.landscape-photo {
+  aspect-ratio: 3 / 2;
+}
+
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  color: var(--text);
+  font-size: 15px;
+  text-align: center;
+}
+
+
+/* TANSSITEOKSET */
+
+.performance-list {
+  display: grid;
+  gap: 32px;
+}
+
+.performance-card {
+  display: grid;
+  grid-template-columns: 225px minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--box);
+}
+
+.performance-text {
+  min-width: 0;
+}
+
+.performance-text h2 {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.performance-text p {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.performance-text p + p {
+  margin-top: 14px;
+}
+
+.credits {
+  margin-top: 26px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.credits > div + div {
+  margin-top: 12px;
+}
+
+.credits dt {
+  font-weight: 400;
+}
+
+.credits dd {
+  font-weight: 300;
+}
+
+
+/* PROJEKTIT */
+
+.projects-page h1,
+.past-events > h2 {
+  font-size: clamp(31px, 3vw, 43px);
+  font-weight: 400;
+}
+
+.projects-introduction {
+  margin-top: 18px;
+  margin-bottom: 24px;
+  font-size: 21px;
+}
+
+.event-card {
+  padding: 30px 22px;
+
+  border-radius: var(--radius);
+  background: var(--box);
+}
+
+.event-card + .event-card {
+  margin-top: 24px;
+}
+
+.event-card h2,
+.event-card h3 {
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.event-card p {
+  margin-top: 18px;
+  font-size: 21px;
+}
+
+.past-events {
+  margin-top: 64px;
+  padding-top: 42px;
+  border-top: 1px solid var(--text);
+}
+
+.past-events > h2 {
+  margin-bottom: 24px;
+}
+
+
+/* YHTEYSTIEDOT */
+
+.contact-introduction {
+  max-width: 620px;
+}
+
+.contact-card {
+  max-width: 650px;
+  margin-inline: auto;
+  padding: 40px;
+
+  border-radius: var(--radius);
+  background: var(--box);
+}
+
+.contact-card > h2 {
+  margin-bottom: 28px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.contact-details {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-details > div {
+  padding: 19px 22px;
+
+  border-radius: 4px;
+  background: var(--background);
+}
+
+.contact-details dt {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.contact-details dd {
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+
+.contact-details a {
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+.contact-card > .button {
+  display: flex;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+
+/* ALATUNNISTE */
+
+.site-footer {
+  padding: 30px 28px;
+  background: var(--box);
+}
+
+.footer-inner {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-name {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.footer-email {
+  display: inline-block;
+  margin-top: 5px;
+
+  font-size: 13px;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.footer-email:hover {
+  text-decoration: underline;
+}
+
+.footer-credit {
+  font-size: 12px;
+  text-align: right;
+}
+
+
+/* PIENEMMÄT NÄYTÖT JA TABLETIT */
+
+@media (max-width: 1100px) {
+  .header-inner {
+    width: 95%;
+    min-height: 100px;
+    gap: 24px;
+  }
+
+  .main-navigation {
+    gap: 16px;
+  }
+
+  .main-navigation a {
+    font-size: 16px;
+  }
+
+  .language-picker select {
+    width: 105px;
+    font-size: 14px;
+  }
+
+  .about-card {
+    padding: 35px;
+    gap: 35px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+  }
+
+  .performance-card {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 25px;
+  }
+}
+
+
+/* MOBIILI */
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+  }
+
+  .header-inner {
+    position: relative;
+
+    width: 100%;
+    min-height: 78px;
+    padding: 15px 22px;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .main-navigation {
+    order: 3;
+    flex-basis: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    margin-top: 16px;
+    padding-top: 10px;
+
+    border-top: 1px solid var(--border);
+  }
+
+  .main-navigation.is-open {
+    display: flex;
+  }
+
+  .main-navigation a {
+    padding: 12px 4px;
+    font-size: 18px;
+  }
+
+  .main-navigation a::after {
+    display: none;
+  }
+
+  .main-navigation a[aria-current="page"] {
+    font-weight: 500;
+  }
+
+  .language-picker select {
+    width: 112px;
+    font-size: 15px;
+  }
+
+  .page {
+    padding: 70px 22px 85px;
+  }
+
+  .page-heading {
+    margin-bottom: 38px;
+  }
+
+  .page-introduction {
+    margin: -14px auto 35px;
+    font-size: 18px;
+  }
+
+  .home-page {
+    min-height: calc(100svh - 78px);
+    padding-top: 110px;
+  }
+
+  .home-content h1 {
+    font-size: 44px;
+  }
+
+  .home-introduction {
+    margin: 38px auto 42px;
+    font-size: 20px;
+  }
+
+  .button {
+    padding: 15px 27px;
+    font-size: 19px;
+  }
+
+  .about-card {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    gap: 30px;
+  }
+
+  .portrait-photo {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  .about-text h2 {
+    font-size: 27px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .performance-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 22px;
+  }
+
+  .performance-photo {
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .vertical-photo {
+    max-width: 280px;
+  }
+
+  .performance-text h2 {
+    font-size: 25px;
+  }
+
+  .performance-text p {
+    font-size: 16px;
+  }
+
+  .credits {
+    font-size: 14px;
+  }
+
+  .projects-introduction,
+  .event-card p {
+    font-size: 18px;
+  }
+
+  .event-card {
+    padding: 25px 20px;
+  }
+
+  .past-events {
+    margin-top: 45px;
+    padding-top: 32px;
+  }
+
+  .contact-card {
+    padding: 25px 20px;
+  }
+
+  .contact-details > div {
+    padding: 16px;
+  }
+
+  .contact-details dd {
+    font-size: 17px;
+  }
+
+  .site-footer {
+    padding: 27px 22px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-credit {
+    text-align: left;
+    font-size: 11px;
+  }
+}
+
+
+/* VÄHENNETTY LIIKE */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
