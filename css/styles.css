@@ -902,3 +902,41 @@ main {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+/* Kielivalinnan liput ylävalikon oikeassa reunassa */
+.language-flags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.language-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 44px;
+  padding: 5px;
+
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.language-flag svg {
+  display: block;
+  width: 36px;
+  height: 24px;
+  border: 1px solid rgba(94, 83, 68, 0.2);
+}
+
+.language-flag:hover {
+  background: rgba(240, 238, 223, 0.6);
+}
+
+/* Valitun kielen ympärillä näkyy ruskea reunus */
+.language-flag[aria-pressed="true"] {
+  border-color: var(--heading);
+}

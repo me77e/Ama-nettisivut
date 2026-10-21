@@ -82,38 +82,47 @@ if (header) {
         </a>
       </nav>
 
-      <div class="language-picker">
-        <label
-          class="visually-hidden"
-          for="language"
-          data-en="Language"
-        >
-          Kieli
-        </label>
+<div class="language-picker language-flags">
+  <button
+    class="language-flag"
+    type="button"
+    data-language="fi"
+    aria-label="Suomi"
+    aria-pressed="true"
+    title="Suomi"
+  >
+    <svg
+      width="36"
+      height="24"
+      viewBox="0 0 36 24"
+      aria-hidden="true"
+    >
+      <rect width="36" height="24" fill="#ffffff"></rect>
+      <rect x="10" width="6" height="24" fill="#003580"></rect>
+      <rect y="9" width="36" height="6" fill="#003580"></rect>
+    </svg>
+  </button>
 
-        <select id="language">
-          <option value="fi">Suomi</option>
-          <option value="en">English</option>
-        </select>
-
-        <svg
-          class="select-arrow"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="m6 9 6 6 6-6"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </div>
-    </div>
+  <button
+    class="language-flag"
+    type="button"
+    data-language="en"
+    aria-label="English"
+    aria-pressed="false"
+    title="English"
+  >
+    <svg
+      width="36"
+      height="24"
+      viewBox="0 0 36 24"
+      aria-hidden="true"
+    >
+      <rect width="36" height="24" fill="#ffffff"></rect>
+      <rect x="15" width="6" height="24" fill="#ce1124"></rect>
+      <rect y="9" width="36" height="6" fill="#ce1124"></rect>
+    </svg>
+  </button>
+</div>
   `;
 }
 
@@ -375,6 +384,12 @@ function changeLanguage(language) {
   currentLanguage = language === "en" ? "en" : "fi";
 
   document.documentElement.lang = currentLanguage;
+  document.querySelectorAll("[data-language]").forEach((button) => {
+  button.setAttribute(
+    "aria-pressed",
+    String(button.dataset.language === currentLanguage)
+  );
+});
 
   if (languageSelect) {
     languageSelect.value = currentLanguage;
@@ -492,4 +507,9 @@ document.querySelectorAll(".photo-frame img").forEach((image) => {
       showPlaceholder();
     }
   }
+});
+document.querySelectorAll("[data-language]").forEach((button) => {
+  button.addEventListener("click", () => {
+    changeLanguage(button.dataset.language);
+  });
 });
