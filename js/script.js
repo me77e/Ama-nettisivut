@@ -103,25 +103,23 @@ if (header) {
     </svg>
   </button>
 
-  <button
-    class="language-flag"
-    type="button"
-    data-language="en"
-    aria-label="English"
-    aria-pressed="false"
-    title="English"
-  >
-    <svg
-      width="36"
-      height="24"
-      viewBox="0 0 36 24"
-      aria-hidden="true"
-    >
-      <rect width="36" height="24" fill="#ffffff"></rect>
-      <rect x="15" width="6" height="24" fill="#ce1124"></rect>
-      <rect y="9" width="36" height="6" fill="#ce1124"></rect>
-    </svg>
-  </button>
+<button class="language-flag" type="button"
+  data-language="en"
+  aria-label="English"
+  aria-pressed="false"
+  title="English">
+  <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+    <rect width="36" height="24" fill="#012169"></rect>
+    <path d="M0 0 L36 24 M36 0 L0 24"
+      stroke="#ffffff" stroke-width="5"></path>
+    <path d="M0 0 L36 24 M36 0 L0 24"
+      stroke="#C8102E" stroke-width="2.5"></path>
+    <path d="M18 0 V24 M0 12 H36"
+      stroke="#ffffff" stroke-width="8"></path>
+    <path d="M18 0 V24 M0 12 H36"
+      stroke="#C8102E" stroke-width="4.5"></path>
+  </svg>
+</button>
 </div>
   `;
 }
