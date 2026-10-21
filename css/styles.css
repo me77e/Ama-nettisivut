@@ -959,3 +959,34 @@ main {
   outline: 3px solid #746343;
   outline-offset: 3px;
 }
+.sankofa-meaning {
+  max-width: 900px;
+  margin: 0 auto 56px;
+  padding: 30px 42px;
+  border-left: 4px solid #746343;
+  background: rgba(211, 214, 190, 0.45);
+  border-radius: 6px;
+}
+
+.sankofa-meaning h2 {
+  margin: 0 0 16px;
+  color: #746343;
+  font-size: 24px;
+}
+
+.sankofa-meaning p {
+  max-width: 780px;
+  margin: 0;
+  color: #5E5344;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .sankofa-meaning {
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+}
+.sankofa-meaning > p + h2 {
+  margin-top: 28px;
+}
