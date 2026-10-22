@@ -1085,3 +1085,23 @@ main p.home-intro-text {
 .home-image-card .image-credit {
   font-size: 0.78rem;
 }
+.performance-card .photo-credit {
+  margin-top: 8px;
+  color: #5E5344;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.performance-card figure.photo-frame {
+  height: auto;
+  overflow: visible;
+}
+
+.performance-card figure.photo-frame figcaption.photo-credit {
+  display: block;
+  position: static;
+  visibility: visible;
+  margin-top: 8px;
+  color: #5E5344;
+  font-size: 0.8rem;
+  text-align: center;
+}
