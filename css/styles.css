@@ -1030,7 +1030,7 @@ main p.home-intro-text {
   top: 28px;
   left: clamp(20px, 4vw, 64px);
   display: block;
-  width: 140px;
+  width: 100px;
   z-index: 1;
 }
 

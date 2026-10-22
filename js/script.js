@@ -10,7 +10,7 @@
 
 const yhteystiedot = {
   nimi: "Sankofa ry",
-  sahkoposti: "Info.sankofary@gmail.com",
+  sahkoposti: "Ama.keshia@gmail.com",
   puhelin: "",
   yhteyshenkilo: "",
   osoite: "",
