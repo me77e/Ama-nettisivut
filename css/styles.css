@@ -1118,3 +1118,42 @@ main p.home-intro-text {
   line-height: 1.4;
   text-align: center;
 }
+.tour-project {
+  margin: 32px 0;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: rgba(211, 214, 190, 0.8);
+  color: #5E5344;
+}
+
+.tour-project h2,
+.tour-project h3 {
+  margin-top: 20px;
+  color: #746343;
+}
+
+.tour-dates {
+  max-width: 520px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tour-dates li {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(116, 99, 67, 0.25);
+}
+
+.tour-dates li span:last-child {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .tour-project {
+    padding: 22px;
+  }
+}
+
