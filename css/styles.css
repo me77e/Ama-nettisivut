@@ -1091,17 +1091,30 @@ main p.home-intro-text {
   font-size: 0.8rem;
   text-align: center;
 }
-.performance-card figure.photo-frame {
-  height: auto;
-  overflow: visible;
+.performance-card .photo-frame.performance-photo {
+  display: block !important;
+  position: relative;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  overflow: visible !important;
 }
 
-.performance-card figure.photo-frame figcaption.photo-credit {
+.performance-card .photo-frame.performance-photo > img {
+  position: static !important;
   display: block;
-  position: static;
-  visibility: visible;
-  margin-top: 8px;
+  width: 100%;
+  height: auto !important;
+}
+
+.performance-card .photo-frame.performance-photo > figcaption.photo-credit {
+  position: static !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 8px 0 0;
   color: #5E5344;
   font-size: 0.8rem;
+  line-height: 1.4;
   text-align: center;
 }
