@@ -1040,13 +1040,6 @@ main p.home-intro-text {
   height: auto;
 }
 
-@media (max-width: 600px) {
-  .home-logo {
-    top: 46px;
-    left: 16px;
-    width: 72px;
-  }
-}
 .home-images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1177,14 +1170,6 @@ main p.home-intro-text {
   margin-top: -130px;
   margin-bottom: 24px;
   font-size: clamp(3.5rem, 6vw, 5.5rem);
-}
-
-@media (max-width: 600px) {
-  .home-page #home-heading {
-    margin-top: -35px;
-    margin-bottom: 18px;
-    font-size: clamp(2.8rem, 12vw, 4rem);
-  }
 }
 body[data-page="projektit"] .page-heading {
   margin-top: -150px;
