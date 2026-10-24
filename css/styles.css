@@ -1186,3 +1186,52 @@ main p.home-intro-text {
     font-size: clamp(2.8rem, 12vw, 4rem);
   }
 }
+body[data-page="projektit"] .page-heading {
+  margin-top: -150px;
+  font-size: clamp(3.5rem, 5vw, 4.5rem);
+}
+
+body[data-page="projektit"] .content-container p {
+  font-size: 1.35rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  body[data-page="projektit"] .page-heading {
+    margin-top: -55px;
+    font-size: clamp(2.8rem, 12vw, 3.5rem);
+  }
+}
+
+  body[data-page="projektit"] .content-container p {
+    font-size: 1.1rem;
+  }
+  body[data-page="projektit"] .content-container h2,
+body[data-page="projektit"] .content-container h3 {
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+body[data-page="projektit"] .content-container p,
+body[data-page="projektit"] .tour-dates li {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  body[data-page="projektit"] .content-container h2,
+  body[data-page="projektit"] .content-container h3 {
+    font-size: 1.35rem;
+  }
+
+  body[data-page="projektit"] .content-container p,
+  body[data-page="projektit"] .tour-dates li {
+    font-size: 1.05rem;
+  }
+}
+body[data-page="projektit"] .tour-project h2 {
+  margin-bottom: 0.8em;
+}
+
