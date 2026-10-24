@@ -10,7 +10,10 @@
 
 const yhteystiedot = {
   nimi: "Sankofa ry",
-  sahkoposti: "Ama.keshia@gmail.com",
+  email: "Ama.keshia@gmail.com",
+  yhteyshenkilo: "",
+  osoite: "",
+  puhelin: "",
   instagram: "https://www.instagram.com/sankofary/"
 };
 
@@ -166,7 +169,7 @@ function updateContactDetails() {
     element.textContent = yhteystiedot.nimi;
   });
 
-  const email = yhteystiedot.sahkoposti.trim();
+  const email = yhteystiedot.email.trim();
 
   document.querySelectorAll('[data-contact="email"]').forEach((element) => {
     element.textContent = email;
