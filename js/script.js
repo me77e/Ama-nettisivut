@@ -11,10 +11,7 @@
 const yhteystiedot = {
   nimi: "Sankofa ry",
   sahkoposti: "Ama.keshia@gmail.com",
-  puhelin: "",
-  yhteyshenkilo: "",
-  osoite: "",
-  instagram: ""
+  instagram: "https://www.instagram.com/sankofary/"
 };
 
 /* =====================================================
