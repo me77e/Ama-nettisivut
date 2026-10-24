@@ -1042,7 +1042,7 @@ main p.home-intro-text {
 
 @media (max-width: 600px) {
   .home-logo {
-    top: 16px;
+    top: 46px;
     left: 16px;
     width: 72px;
   }
@@ -1181,7 +1181,7 @@ main p.home-intro-text {
 
 @media (max-width: 600px) {
   .home-page #home-heading {
-    margin-top: -65px;
+    margin-top: -35px;
     margin-bottom: 18px;
     font-size: clamp(2.8rem, 12vw, 4rem);
   }
