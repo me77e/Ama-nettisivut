@@ -1,0 +1,15 @@
+{
+  "jarjestys": 1,
+  "nimi_fi": "CMS testitanssi",
+  "nimi_en": "CMS test dance",
+  "tekstit": [
+    {
+      "fi": "Tämä on Decap CMS:n testaamista varten luotu tanssiteos.",
+      "en": "This dance performance was created to test Decap CMS."
+    }
+  ],
+  "kuva": "/images/logo.png",
+  "kuva_alt_fi": "Logo",
+  "kuva_alt_en": "Logo",
+  "kuvan_asettelu": "vertical"
+}
