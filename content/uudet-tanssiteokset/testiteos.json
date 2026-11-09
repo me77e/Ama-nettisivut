@@ -1,0 +1,29 @@
+
+{
+  "jarjestys": 1,
+  "nimi_fi": "Testitanssiteos",
+  "nimi_en": "Test Dance Performance",
+  "kuva": "images/veden-kuiskaus.jpg",
+  "kuva_alt_fi": "",
+  "kuva_alt_en": "",
+  "kuvaaja_fi": "Kuvaaja: Wanda Holopainen",
+  "kuvaaja_en": "Photo: Wanda Holopainen",
+  "kuvan_asettelu": "landscape",
+  "tekstit": [
+    {
+      "fi": "Tämä on hallintapaneelin toiminnan testaamista varten luotu tanssiteos.",
+      "en": "This is a dance performance created to test the content management system."
+    }
+  ],
+  "traileri": "https://www.youtube.com/watch?v=IlhIDtXsCGw",
+  
+"tekijat": [
+  {
+    "rooli_fi": "Koreografia ja esitys:",
+    "rooli_en": "Choreography and performance:",
+    "nimi_fi": "Ama Kyei",
+    "nimi_en": "Ama Kyei"
+  }
+]
+
+}

@@ -1,0 +1,16 @@
+
+{
+  "nimi_fi": "Testiprojekti",
+  "nimi_en": "Test Project",
+  "kuva": "images/veden-kuiskaus.jpg",
+  "kuva_alt_fi": "Tanssiesitys",
+  "kuva_alt_en": "Dance performance",
+  "kuvaaja_fi": "Kuvaaja: Wanda Holopainen",
+  "kuvaaja_en": "Photo: Wanda Holopainen",
+  "tekstit": [
+    {
+      "fi": "Tämä on testiprojekti, jolla kokeillaan uusien projektien lisäämistä verkkosivulle.",
+      "en": "This is a test project to check how new projects are added to the website."
+    }
+  ]
+}
