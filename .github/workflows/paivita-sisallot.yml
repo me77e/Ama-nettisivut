@@ -4,7 +4,7 @@ name: Paivita sisaltoluettelot
 on:
   push:
     branches:
-      - sankofa-cms
+      - main
     paths:
       - "content/uudet-tanssiteokset/**"
       - "content/uudet-projektit/**"
