@@ -1,0 +1,97 @@
+
+{
+  "jarjestys": 3,
+  "nimi_fi": "Walk with Me",
+  "nimi_en": "Walk with Me",
+  "kuva": "images/Walk-with-me .jpg",
+  "kuva_alt_fi": "Walk with Me -esityksen esiintyjät",
+  "kuva_alt_en": "Performers in Walk with Me",
+  "kuvaaja_fi": "Kuvaaja: Valtion taidemuseo/ Pirje Mykkänen",
+  "kuvaaja_en": "Photo: Finnish National Gallery/ Pirje Mykkänen",
+  "kuvan_asettelu": "landscape",
+  "tekstit": [
+    {
+      "fi": "Walk with Me on koko perheen esitys. Vilttimajan sisällä kuljemme vaihtuvien unimaisemien ja lempeiden seikkailujen halki. Esitys kutsuu meidät kokoontumaan yhdeksi laumaksi, saman äidin lapsiksi, ja luottamaan elämään, liikkeeseen ja toisiimme lapsen uteliaisuudella.",
+      "en": "Walk with Me is a performance for the whole family. Inside a blanket tent, we journey through shifting dreamscapes and gentle adventures. The performance invites us to come together as a herd, born from the same mother, and to trust life, movement and one another with the curiosity of a child."
+    },
+    {
+      "fi": "Teos sai ensi-iltansa Kiasma-teatterissa kesäkuussa 2026.",
+      "en": "The piece premiered at Kiasma Theatre in June 2026."
+    }
+  ],
+  "traileri": "https://www.youtube-nocookie.com/embed/e3I7eZO3fpY",
+  "tekijat": [
+    {
+      "rooli_fi": "Ohjaus, koreografia, esitys, käsikirjoitus:",
+      "rooli_en": "Direction, choreography, performance and script:",
+      "nimi_fi": "Ama Kyei",
+      "nimi_en": "Ama Kyei"
+    },
+    {
+      "rooli_fi": "Lavastus, videot, taiteellinen dialogi, käsikirjoitus:",
+      "rooli_en": "Set design, videos, artistic dialogue and script:",
+      "nimi_fi": "Wanda Holopainen",
+      "nimi_en": "Wanda Holopainen"
+    },
+    {
+      "rooli_fi": "Äänisuunnittelu, taiteellinen dialogi:",
+      "rooli_en": "Sound design and artistic dialogue:",
+      "nimi_fi": "Saban Ramadani",
+      "nimi_en": "Saban Ramadani"
+    },
+    {
+      "rooli_fi": "2D-animaatio, taiteellinen dialogi:",
+      "rooli_en": "2D animation and artistic dialogue:",
+      "nimi_fi": "Naomi Holopainen",
+      "nimi_en": "Naomi Holopainen"
+    },
+    {
+      "rooli_fi": "Valosuunnittelu, taiteellinen dialogi:",
+      "rooli_en": "Lighting design and artistic dialogue:",
+      "nimi_fi": "Titus Torniainen",
+      "nimi_en": "Titus Torniainen"
+    },
+    {
+      "rooli_fi": "Puvut:",
+      "rooli_en": "Costumes:",
+      "nimi_fi": "Albert Kingsley Annan & Angela Emanuel Mugisha",
+      "nimi_en": "Albert Kingsley Annan & Angela Emanuel Mugisha"
+    },
+    {
+      "rooli_fi": "Neulotut taideteokset lavasteissa:",
+      "rooli_en": "Knitted artworks in the set:",
+      "nimi_fi": "Kirsi-Mari Hemanus",
+      "nimi_en": "Kirsi-Mari Hemanus"
+    },
+    {
+      "rooli_fi": "Tanssi videolla:",
+      "rooli_en": "Dance on video:",
+      "nimi_fi": "Steeze Afrika (Accra, Ghana)",
+      "nimi_en": "Steeze Afrika (Accra, Ghana)"
+    },
+    {
+      "rooli_fi": "Kpanlogo-laulu:",
+      "rooli_en": "Kpanlogo song:",
+      "nimi_fi": "Ghana Dance Ensemble muusikot (Accra, Ghana)",
+      "nimi_en": "Ghana Dance Ensemble musicians (Accra, Ghana)"
+    },
+    {
+      "rooli_fi": "Laulu:",
+      "rooli_en": "Vocals:",
+      "nimi_fi": "Iida Valme",
+      "nimi_en": "Iida Valme"
+    },
+    {
+      "rooli_fi": "Ulkopuoliset silmät:",
+      "rooli_en": "Outside eyes:",
+      "nimi_fi": "Marika Peura, Nadja Leham & Axelle Munezero",
+      "nimi_en": "Marika Peura, Nadja Leham & Axelle Munezero"
+    },
+    {
+      "rooli_fi": "Yhteistuotanto:",
+      "rooli_en": "Co-production:",
+      "nimi_fi": "URB-festivaali / Kiasma-teatteri ja taiteilijat",
+      "nimi_en": "URB Festival / Kiasma Theatre and the artists"
+    }
+  ]
+}

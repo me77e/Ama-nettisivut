@@ -393,12 +393,50 @@ function changeLanguage(language) {
     languageSelect.value = currentLanguage;
   }
 
-  translatedElements.forEach((element) => {
-    element.textContent =
-      currentLanguage === "en"
-        ? element.dataset.en
-        : finnishTexts.get(element);
-  });
+translatedElements.forEach((element) => {
+  const finnish = finnishTexts.get(element);
+  const english = element.dataset.en;
+
+  element.textContent =
+    currentLanguage === "en"
+      ? (english || finnish || "")
+      : (finnish || "");
+});
+
+document.querySelectorAll("#new-performances [data-en]").forEach((element) => {
+  const finnish = element.dataset.fi;
+  const english = element.dataset.en;
+
+  element.textContent =
+    currentLanguage === "en"
+      ? (english || finnish || "")
+      : (finnish || "");
+});
+
+document.querySelectorAll("#new-performances img[data-alt-en]").forEach((image) => {
+  image.alt = currentLanguage === "en"
+    ? image.dataset.altEn
+    : image.dataset.altFi;
+});
+
+document.querySelectorAll("#new-projects [data-en]").forEach((element) => {
+  const finnish = element.dataset.fi;
+  const english = element.dataset.en;
+
+  element.textContent =
+    currentLanguage === "en"
+      ? (english || finnish || "")
+      : (finnish || "");
+});
+
+document.querySelectorAll("#new-projects img[data-alt-en]").forEach((image) => {
+  image.alt =
+    currentLanguage === "en"
+      ? image.dataset.altEn
+      : image.dataset.altFi;
+});
+
+
 
   translatedImages.forEach((image) => {
     image.alt =
@@ -511,3 +549,510 @@ document.querySelectorAll("[data-language]").forEach((button) => {
     changeLanguage(button.dataset.language);
   });
 });
+
+
+/* =========================================
+   ETUSIVUN SISÄLLÖN LATAAMINEN
+========================================= */
+
+async function loadHomeContent() {
+  if (currentPage !== "etusivu") return;
+
+  try {
+    const response = await fetch("content/etusivu.json");
+
+    if (!response.ok) {
+      throw new Error("Sisältötiedostoa ei löytynyt");
+    }
+
+    const content = await response.json();
+
+    // Päivitetään etusivun pääkuva JSON-tiedostosta
+    const homeImage = document.querySelector(
+      '[data-content-image="kuva"]'
+    );
+
+    if (homeImage && typeof content.kuva === "string" && content.kuva) {
+      homeImage.src = content.kuva;
+    }
+    
+  // Päivitetään toinen kuva JSON-tiedostosta
+  const secondImage = document.querySelector('[data-content-image="kuva2"]');
+
+  if (secondImage && typeof content.kuva2 === "string" && content.kuva2) {
+    secondImage.src = content.kuva2;
+  }
+  
+    // Päivitetään kolmas kuva JSON-tiedostosta
+    const thirdImage = document.querySelector('[data-content-image="kuva3"]');
+
+    if (thirdImage && typeof content.kuva3 === "string" && content.kuva3) {
+      thirdImage.src = content.kuva3;
+    }
+
+    // Päivitetään kolmannen kuvan vaihtoehtoiset tekstit
+    if (thirdImage) {
+      if (typeof content.kuva3_alt_fi === "string") {
+        finnishAltTexts.set(thirdImage, content.kuva3_alt_fi);
+      }
+
+      if (typeof content.kuva3_alt_en === "string") {
+        thirdImage.dataset.altEn = content.kuva3_alt_en;
+      }
+
+      thirdImage.alt =
+        currentLanguage === "en"
+          ? (thirdImage.dataset.altEn || "")
+          : (finnishAltTexts.get(thirdImage) || "");
+    }
+
+
+    // Päivitetään pääkuvan vaihtoehtoiset tekstit
+    if (homeImage) {
+      if (typeof content.kuva_alt_fi === "string") {
+        finnishAltTexts.set(homeImage, content.kuva_alt_fi);
+      }
+
+      if (typeof content.kuva_alt_en === "string") {
+        homeImage.dataset.altEn = content.kuva_alt_en;
+      }
+
+      homeImage.alt =
+        currentLanguage === "en"
+          ? (homeImage.dataset.altEn || "")
+          : (finnishAltTexts.get(homeImage) || "");
+    }
+    
+    // Päivitetään toisen kuvan vaihtoehtoiset tekstit
+    if (secondImage) {
+      if (typeof content.kuva2_alt_fi === "string") {
+        finnishAltTexts.set(secondImage, content.kuva2_alt_fi);
+      }
+
+      if (typeof content.kuva2_alt_en === "string") {
+        secondImage.dataset.altEn = content.kuva2_alt_en;
+      }
+
+      secondImage.alt =
+        currentLanguage === "en"
+          ? (secondImage.dataset.altEn || "")
+          : (finnishAltTexts.get(secondImage) || "");
+    }
+
+
+    // Päivitetään kuvateksti ja kuvaajan tiedot
+      ["kuvateksti", "kuvaaja", "kuva2_teksti", "kuva2_kuvaaja", "kuva3_teksti", "kuva3_kuvaaja"].forEach((field) => {
+      const element = document.querySelector(
+        `[data-content="${field}"]`
+      );
+
+      if (!element) return;
+
+      const finnish = content[`${field}_fi`];
+      const english = content[`${field}_en`];
+
+      if (typeof finnish === "string") {
+        finnishTexts.set(element, finnish);
+      }
+
+      if (typeof english === "string") {
+        element.dataset.en = english;
+      }
+
+      element.textContent =
+        currentLanguage === "en"
+          ? (element.dataset.en || finnishTexts.get(element) || "")
+          : (finnishTexts.get(element) || "");
+    });
+
+
+    for (let i = 1; i <= 3; i++) {
+      const element = document.querySelector(
+        `[data-content="esittely${i}"]`
+      );
+
+      if (!element) continue;
+
+      const finnish = content[`esittely${i}_fi`];
+      const english = content[`esittely${i}_en`];
+
+      if (typeof finnish !== "string" ||
+          typeof english !== "string") continue;
+
+      finnishTexts.set(element, finnish);
+      element.dataset.en = english;
+
+      element.textContent =
+        currentLanguage === "en" ? english : finnish;
+    }
+  } catch (error) {
+    console.error("Etusivun sisältöä ei voitu ladata:", error);
+  }
+}
+
+loadHomeContent();
+
+async function loadAboutContent() {
+  if (currentPage !== "meista") return;
+
+  try {
+    const response = await fetch("content/meista.json");
+
+    if (!response.ok) {
+      throw new Error("Meistä-sivun sisältöä ei voitu ladata");
+    }
+
+    const content = await response.json();
+
+    // Päivitetään kaikki Meistä-sivun tekstit
+    document.querySelectorAll("[data-content]").forEach((element) => {
+      const field = element.dataset.content;
+      const finnish = content[`${field}_fi`];
+      const english = content[`${field}_en`];
+
+      if (typeof finnish === "string") {
+        finnishTexts.set(element, finnish);
+      }
+
+      if (typeof english === "string") {
+        element.dataset.en = english;
+      }
+
+      // Ama Kyein nimi on sama molemmilla kielillä
+      if (field === "ama_otsikko" && typeof content.ama_otsikko === "string") {
+        finnishTexts.set(element, content.ama_otsikko);
+        element.dataset.en = content.ama_otsikko;
+      }
+
+      element.textContent =
+        currentLanguage === "en"
+          ? (element.dataset.en || finnishTexts.get(element) || "")
+          : (finnishTexts.get(element) || "");
+    });
+
+    // Päivitetään Ama Kyein kuva
+    const amaImage = document.querySelector('[data-content-image="ama_kuva"]');
+
+    if (amaImage && typeof content.ama_kuva === "string" && content.ama_kuva) {
+      amaImage.src = content.ama_kuva;
+    }
+
+  } catch (error) {
+    console.error("Meistä-sivun sisällön lataus epäonnistui:", error);
+  }
+}
+
+loadAboutContent();
+
+
+async function loadPerformances() {
+  if (currentPage !== "tanssiteokset") return;
+
+  try {
+    const response = await fetch("content/luettelot/tanssiteokset.json");
+
+    if (!response.ok) {
+      throw new Error("Tanssiteosten luetteloa ei voitu ladata");
+    }
+
+
+const files = await response.json();
+
+const performances = await Promise.all(
+  files.map(async (filename) => {
+    const response = await fetch(
+  `content/uudet-tanssiteokset/${filename}`
+);
+
+    if (!response.ok) {
+      throw new Error(`Tanssiteosta ei voitu ladata: ${filename}`);
+    }
+
+    return response.json();
+  })
+);
+
+performances.sort(
+  (a, b) => Number(a.jarjestys) - Number(b.jarjestys)
+);
+
+console.log("Ladatut tanssiteokset:", performances);
+
+const container = document.getElementById("new-performances");
+
+if (!container) return;
+
+container.replaceChildren();
+
+performances.forEach((performance) => {
+  const card = document.createElement("article");
+  card.className = "performance-card";
+  
+  // Lisätään kuva, jos sellainen on annettu
+  if (performance.kuva) {
+    const figure = document.createElement("figure");
+
+    figure.className =
+      "photo-frame performance-photo " +
+      (performance.kuvan_asettelu === "vertical"
+        ? "vertical-photo"
+        : "landscape-photo");
+
+    const image = document.createElement("img");
+    image.src = performance.kuva;
+    image.alt =
+      currentLanguage === "en"
+        ? performance.kuva_alt_en || ""
+        : performance.kuva_alt_fi || "";
+        image.dataset.altFi = performance.kuva_alt_fi || "";
+        image.dataset.altEn = performance.kuva_alt_en || "";
+        image.loading = "lazy";
+
+    figure.appendChild(image);
+
+    if (performance.kuvaaja_fi || performance.kuvaaja_en) {
+      const credit = document.createElement("figcaption");
+      credit.className = "photo-credit";
+      credit.textContent =
+        currentLanguage === "en"
+          ? performance.kuvaaja_en || ""
+          : performance.kuvaaja_fi || "";
+          credit.dataset.fi = performance.kuvaaja_fi || "";
+          credit.dataset.en = performance.kuvaaja_en || "";
+
+      figure.appendChild(credit);
+    }
+
+    card.appendChild(figure);
+  }
+
+
+  const textContainer = document.createElement("div");
+  textContainer.className = "performance-text";
+
+  const heading = document.createElement("h2");
+  heading.textContent =
+    currentLanguage === "en"
+      ? performance.nimi_en
+      : performance.nimi_fi;
+      heading.dataset.en = performance.nimi_en;
+      heading.dataset.fi = performance.nimi_fi;
+
+  textContainer.appendChild(heading);
+  
+  // Lisätään tanssiteoksen esittelytekstit
+  performance.tekstit?.forEach((text) => {
+    const paragraph = document.createElement("p");
+
+    paragraph.textContent =
+      currentLanguage === "en"
+        ? text.en
+        : text.fi;
+        paragraph.dataset.en = text.en;
+        paragraph.dataset.fi = text.fi;
+
+    textContainer.appendChild(paragraph);
+  });
+
+  card.appendChild(textContainer);
+  
+  // Lisätään YouTube-traileri, jos sellainen on annettu
+  if (performance.traileri) {
+    try {
+      const url = new URL(performance.traileri);
+
+      let videoId = "";
+
+      if (url.hostname === "youtu.be") {
+        videoId = url.pathname.slice(1);
+      } else if (
+        url.hostname === "youtube.com" ||
+        url.hostname === "www.youtube.com"
+      ) {
+        videoId = url.searchParams.get("v") || "";
+
+        if (url.pathname.startsWith("/embed/")) {
+          videoId = url.pathname.split("/")[2];
+        }
+      } else if (url.hostname === "www.youtube-nocookie.com") {
+        videoId = url.pathname.split("/")[2];
+      }
+
+      if (/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+        const videoContainer = document.createElement("div");
+        videoContainer.className = "trailer-video";
+
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+        iframe.title = "Tanssiteoksen traileri";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+
+        videoContainer.appendChild(iframe);
+        textContainer.appendChild(videoContainer);
+      }
+    } catch (error) {
+      console.warn("Trailerin linkki ei kelpaa:", error);
+    }
+  }
+
+  
+  // Lisätään tanssiteoksen tekijätiedot
+  if (performance.tekijat?.length > 0) {
+    const credits = document.createElement("dl");
+    credits.className = "credits";
+
+    performance.tekijat.forEach((person) => {
+      const row = document.createElement("div");
+
+      const role = document.createElement("dt");
+      role.textContent =
+        currentLanguage === "en"
+          ? person.rooli_en
+          : person.rooli_fi;
+          role.dataset.fi = person.rooli_fi || "";
+          role.dataset.en = person.rooli_en || "";
+
+      const name = document.createElement("dd");
+      name.textContent =
+        currentLanguage === "en"
+          ? person.nimi_en
+          : person.nimi_fi;
+          name.dataset.fi = person.nimi_fi || "";
+          name.dataset.en = person.nimi_en || "";
+
+      row.appendChild(role);
+      row.appendChild(name);
+      credits.appendChild(row);
+    });
+
+    textContainer.appendChild(credits);
+  }
+
+
+  container.appendChild(card);
+});
+
+  } catch (error) {
+    console.error("Tanssiteosten lataus epäonnistui:", error);
+  }
+}
+
+loadPerformances();
+
+
+async function loadProjects() {
+  if (currentPage !== "projektit") return;
+
+  try {
+    const response = await fetch("content/luettelot/projektit.json");
+
+    if (!response.ok) {
+      throw new Error("Projektien luetteloa ei voitu ladata");
+    }
+
+    const files = await response.json();
+
+    console.log("Uusien projektien tiedostot:", files);
+    
+const projects = await Promise.all(
+  files.map(async (filename) => {
+    const response = await fetch(`content/uudet-projektit/${filename}`);
+
+    if (!response.ok) {
+      throw new Error(`Projektia ei voitu ladata: ${filename}`);
+    }
+
+    return response.json();
+  })
+);
+
+console.log("Ladatut projektit:", projects);
+
+const container = document.getElementById("new-projects");
+
+if (!container) return;
+
+container.replaceChildren();
+
+projects.forEach((project) => {
+  const card = document.createElement("article");
+  card.className = "tour-project";
+
+  const heading = document.createElement("h2");
+  heading.textContent =
+    currentLanguage === "en"
+      ? project.nimi_en
+      : project.nimi_fi;
+
+  heading.dataset.fi = project.nimi_fi || "";
+  heading.dataset.en = project.nimi_en || "";
+
+  card.appendChild(heading);
+  
+if (project.kuva) {
+  const figure = document.createElement("figure");
+  figure.className = "photo-frame landscape-photo";
+
+  const image = document.createElement("img");
+  image.src = project.kuva;
+  image.alt =
+    currentLanguage === "en"
+      ? project.kuva_alt_en || ""
+      : project.kuva_alt_fi || "";
+
+  image.dataset.altFi = project.kuva_alt_fi || "";
+  image.dataset.altEn = project.kuva_alt_en || "";
+  image.loading = "lazy";
+
+  figure.appendChild(image);
+
+  if (project.kuvaaja_fi || project.kuvaaja_en) {
+    const credit = document.createElement("figcaption");
+    credit.className = "photo-credit";
+
+    credit.textContent =
+      currentLanguage === "en"
+        ? project.kuvaaja_en || ""
+        : project.kuvaaja_fi || "";
+
+    credit.dataset.fi = project.kuvaaja_fi || "";
+    credit.dataset.en = project.kuvaaja_en || "";
+
+    figure.appendChild(credit);
+  }
+
+  card.appendChild(figure);
+}
+
+  
+project.tekstit?.forEach((text) => {
+  const paragraph = document.createElement("p");
+
+  paragraph.textContent =
+    currentLanguage === "en"
+      ? text.en
+      : text.fi;
+
+  paragraph.dataset.fi = text.fi || "";
+  paragraph.dataset.en = text.en || "";
+
+  card.appendChild(paragraph);
+});
+
+  container.appendChild(card);
+});
+
+
+  } catch (error) {
+    console.error("Projektien lataus epäonnistui:", error);
+  }
+}
+
+loadProjects();
+
+
+

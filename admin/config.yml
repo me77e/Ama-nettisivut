@@ -1,0 +1,232 @@
+
+# Sankofa ry - sisällönhallinta
+
+locale: fi
+
+backend:
+  name: turbo-github
+  turbo_site_id: 2b2de30e-e5bf-4e40-b6c6-1da3775c3da2
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "sivut"
+    label: "Sivuston sisältö"
+    files:
+      - name: "etusivu"
+        label: "Etusivu"
+        file: "content/etusivu.json"
+        format: "json"
+        fields:
+          - label: "Etusivun otsikko"
+            name: "otsikko"
+            widget: "string"
+
+          - label: "Esittelyteksti 1 (suomi)"
+            name: "esittely1_fi"
+            widget: "text"
+
+          - label: "Esittelyteksti 1 (englanti)"
+            name: "esittely1_en"
+            widget: "text"
+
+          - label: "Esittelyteksti 2 (suomi)"
+            name: "esittely2_fi"
+            widget: "text"
+
+          - label: "Esittelyteksti 2 (englanti)"
+            name: "esittely2_en"
+            widget: "text"
+
+          - label: "Esittelyteksti 3 (suomi)"
+            name: "esittely3_fi"
+            widget: "text"
+
+          - label: "Esittelyteksti 3 (englanti)"
+            name: "esittely3_en"
+            widget: "text"
+
+          - label: "Etusivun pääkuva"
+            name: "kuva"
+            widget: "image"
+            required: false
+
+          - label: "Pääkuvan vaihtoehtoinen teksti (suomi)"
+            name: "kuva_alt_fi"
+            widget: "string"
+
+          - label: "Pääkuvan vaihtoehtoinen teksti (englanti)"
+            name: "kuva_alt_en"
+            widget: "string"
+
+          - label: "Pääkuvan kuvateksti (suomi)"
+            name: "kuvateksti_fi"
+            widget: "string"
+
+          - label: "Pääkuvan kuvateksti (englanti)"
+            name: "kuvateksti_en"
+            widget: "string"
+
+          - label: "Kuvaajan nimi (suomi)"
+            name: "kuvaaja_fi"
+            widget: "string"
+
+          - label: "Kuvaajan nimi (englanti)"
+            name: "kuvaaja_en"
+            widget: "string"
+
+          - label: "Toinen kuva (Ghana)"
+            name: "kuva2"
+            widget: "image"
+            required: false
+
+          - label: "Toisen kuvan alt-teksti (suomi)"
+            name: "kuva2_alt_fi"
+            widget: "string"
+
+          - label: "Toisen kuvan alt-teksti (englanti)"
+            name: "kuva2_alt_en"
+            widget: "string"
+
+          - label: "Toisen kuvan kuvateksti (suomi)"
+            name: "kuva2_teksti_fi"
+            widget: "string"
+
+          - label: "Toisen kuvan kuvateksti (englanti)"
+            name: "kuva2_teksti_en"
+            widget: "string"
+
+          - label: "Toisen kuvan kuvaaja (suomi)"
+            name: "kuva2_kuvaaja_fi"
+            widget: "string"
+
+          - label: "Toisen kuvan kuvaaja (englanti)"
+            name: "kuva2_kuvaaja_en"
+            widget: "string"
+
+          - label: "Kolmas kuva (Suomi)"
+            name: "kuva3"
+            widget: "image"
+            required: false
+
+          - label: "Kolmannen kuvan alt-teksti (suomi)"
+            name: "kuva3_alt_fi"
+            widget: "string"
+
+          - label: "Kolmannen kuvan alt-teksti (englanti)"
+            name: "kuva3_alt_en"
+            widget: "string"
+
+          - label: "Kolmannen kuvan kuvateksti (suomi)"
+            name: "kuva3_teksti_fi"
+            widget: "string"
+
+          - label: "Kolmannen kuvan kuvateksti (englanti)"
+            name: "kuva3_teksti_en"
+            widget: "string"
+
+          - label: "Kolmannen kuvan kuvaaja (suomi)"
+            name: "kuva3_kuvaaja_fi"
+            widget: "string"
+
+          - label: "Kolmannen kuvan kuvaaja (englanti)"
+            name: "kuva3_kuvaaja_en"
+            widget: "string"
+
+      - name: "meista"
+        label: "Meistä"
+        file: "content/meista.json"
+        format: "json"
+        fields:
+          - { label: "Sivun otsikko (suomi)", name: "otsikko_fi", widget: "string" }
+          - { label: "Sivun otsikko (englanti)", name: "otsikko_en", widget: "string" }
+
+          - { label: "Sankofa-otsikko (suomi)", name: "sankofa_otsikko_fi", widget: "string" }
+          - { label: "Sankofa-otsikko (englanti)", name: "sankofa_otsikko_en", widget: "string" }
+          - { label: "Sankofa-teksti (suomi)", name: "sankofa_teksti_fi", widget: "text" }
+          - { label: "Sankofa-teksti (englanti)", name: "sankofa_teksti_en", widget: "text" }
+
+          - { label: "Lapset-otsikko (suomi)", name: "lapset_otsikko_fi", widget: "string" }
+          - { label: "Lapset-otsikko (englanti)", name: "lapset_otsikko_en", widget: "string" }
+          - { label: "Lapset-teksti 1 (suomi)", name: "lapset_teksti1_fi", widget: "text" }
+          - { label: "Lapset-teksti 1 (englanti)", name: "lapset_teksti1_en", widget: "text" }
+          - { label: "Lapset-teksti 2 (suomi)", name: "lapset_teksti2_fi", widget: "text" }
+          - { label: "Lapset-teksti 2 (englanti)", name: "lapset_teksti2_en", widget: "text" }
+
+          - { label: "Ama Kyein nimi", name: "ama_otsikko", widget: "string" }
+          - { label: "Ama Kyein kuva", name: "ama_kuva", widget: "image" }
+          - { label: "Ama-teksti 1 (suomi)", name: "ama_teksti1_fi", widget: "text" }
+          - { label: "Ama-teksti 1 (englanti)", name: "ama_teksti1_en", widget: "text" }
+          - { label: "Ama-teksti 2 (suomi)", name: "ama_teksti2_fi", widget: "text" }
+          - { label: "Ama-teksti 2 (englanti)", name: "ama_teksti2_en", widget: "text" }
+
+  - name: "tanssiteokset"
+    label: "Tanssiteokset"
+    folder: "content/uudet-tanssiteokset"
+    create: true
+    delete: false
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "nimi_fi"
+    fields:
+      - { label: "Järjestysnumero", name: "jarjestys", widget: "number", value_type: "int", default: 1 }
+      - { label: "Teoksen nimi (suomi)", name: "nimi_fi", widget: "string" }
+      - { label: "Teoksen nimi (englanti)", name: "nimi_en", widget: "string" }
+      - { label: "Teoksen kuva", name: "kuva", widget: "image" }
+      - { label: "Kuvan alt-teksti (suomi)", name: "kuva_alt_fi", widget: "string" }
+      - { label: "Kuvan alt-teksti (englanti)", name: "kuva_alt_en", widget: "string" }
+      - { label: "Kuvaaja (suomi)", name: "kuvaaja_fi", widget: "string", required: false }
+      - { label: "Kuvaaja (englanti)", name: "kuvaaja_en", widget: "string", required: false }
+
+      - label: "Kuvan asettelu"
+        name: "kuvan_asettelu"
+        widget: "select"
+        options:
+          - { label: "Pystykuva", value: "vertical" }
+          - { label: "Vaakakuva", value: "landscape" }
+
+      - { label: "Trailerin osoite", name: "traileri", widget: "string", required: false }
+
+      - label: "Esittelytekstit"
+        name: "tekstit"
+        widget: "list"
+        fields:
+          - { label: "Teksti suomeksi", name: "fi", widget: "text" }
+          - { label: "Teksti englanniksi", name: "en", widget: "text" }
+
+      - label: "Tekijätiedot"
+        name: "tekijat"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Rooli suomeksi", name: "rooli_fi", widget: "string" }
+          - { label: "Rooli englanniksi", name: "rooli_en", widget: "string" }
+          - { label: "Nimi suomeksi", name: "nimi_fi", widget: "string" }
+          - { label: "Nimi englanniksi", name: "nimi_en", widget: "string" }
+
+  - name: "projektit"
+    label: "Projektit"
+    folder: "content/uudet-projektit"
+    create: true
+    delete: false
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "nimi_fi"
+    fields:
+      - { label: "Projektin nimi (suomi)", name: "nimi_fi", widget: "string" }
+      - { label: "Projektin nimi (englanti)", name: "nimi_en", widget: "string" }
+      - { label: "Projektin kuva", name: "kuva", widget: "image", required: false }
+      - { label: "Kuvan alt-teksti (suomi)", name: "kuva_alt_fi", widget: "string", required: false }
+      - { label: "Kuvan alt-teksti (englanti)", name: "kuva_alt_en", widget: "string", required: false }
+      - { label: "Kuvaaja (suomi)", name: "kuvaaja_fi", widget: "string", required: false }
+      - { label: "Kuvaaja (englanti)", name: "kuvaaja_en", widget: "string", required: false }
+
+      - label: "Projektin tekstikappaleet"
+        name: "tekstit"
+        widget: "list"
+        fields:
+          - { label: "Teksti (suomi)", name: "fi", widget: "text" }
+          - { label: "Teksti (englanti)", name: "en", widget: "text" }
