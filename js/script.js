@@ -749,7 +749,7 @@ async function loadPerformances() {
   if (currentPage !== "tanssiteokset") return;
 
   try {
-    const response = await fetch("content/uudet-tanssiteokset/index.json");
+    const response = await fetch("content/luettelot/tanssiteokset.json");
 
     if (!response.ok) {
       throw new Error("Tanssiteosten luetteloa ei voitu ladata");
@@ -948,7 +948,7 @@ async function loadProjects() {
   if (currentPage !== "projektit") return;
 
   try {
-    const response = await fetch("content/uudet-projektit/index.json");
+    const response = await fetch("content/luettelot/projektit.json");
 
     if (!response.ok) {
       throw new Error("Projektien luetteloa ei voitu ladata");

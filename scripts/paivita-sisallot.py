@@ -6,12 +6,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # Kansioiden sijainnit
-FOLDERS = [
-    ROOT / "content" / "uudet-tanssiteokset",
-    ROOT / "content" / "uudet-projektit",
-]
+FOLDERS = {
+    ROOT / "content" / "uudet-tanssiteokset": "tanssiteokset.json",
+    ROOT / "content" / "uudet-projektit": "projektit.json",
+}
 
-for folder in FOLDERS:
+for folder, filename in FOLDERS.items():
     # Etsitään kaikki JSON-tiedostot paitsi index.json
     files = sorted(
         file.name
@@ -20,7 +20,7 @@ for folder in FOLDERS:
     )
 
     # Muodostetaan automaattinen tiedostoluettelo
-    index_file = folder / "index.json"
+    index_file = ROOT / "content" / "luettelot" / filename
 
     index_file.write_text(
         json.dumps(files, ensure_ascii=False, indent=2) + "\n",
