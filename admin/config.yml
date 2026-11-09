@@ -4,9 +4,8 @@
 locale: fi
 
 backend:
-  name: github
-  repo: me77e/Ama-nettisivut
-  branch: sankofa-cms
+  name: turbo-github
+  turbo_site_id: 2b2de30e-e5bf-4e40-b6c6-1da3775c3da2
 
 media_folder: "images"
 public_folder: "/images"
